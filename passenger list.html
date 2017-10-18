@@ -1,0 +1,44 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text">
+    <br>
+    <label for="age">Age: </label>
+    <input id="age" type="number">
+    <br>
+    <input type="button" value="Add Passenger" onClick= "addPassenger()">
+    <input type="button" value="print" onClick= "printPassengerDetails()">
+</form>
+
+<p id="print"> </p> 
+
+</body>
+
+<script>
+var i = 0;
+var passengersList =[];
+
+function addPassenger(){
+    var passenger = {firstName : firstName.value, lastName : lastName.value, age : age.value};
+    passengersList[i] = passenger;
+    i++;
+}
+
+function printPassengerDetails(){
+    
+    for(i = 0; i<passengersList.length; i++){
+        var person = passengersList[i].lastName + " " + passengersList[i].firstName + " " + passengersList[i].age + "<br>";
+        document.getElementById("print").innerHTML += person;    
+    }
+}
+</script>
+
+</html>

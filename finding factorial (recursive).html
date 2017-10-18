@@ -1,0 +1,37 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter number for factorial: <label>
+    <input id="number" type="number">
+
+    <input type="button" value="find" onClick="factorialIs()"> 
+
+</form>
+
+<p id="print"> </p>
+
+</body>
+
+<script>
+
+    function recursiveFactorial(num){
+        var n = parseInt(num);
+        if ( n > 1) 
+		    return n * recursiveFactorial(n - 1);
+        else
+            return 1;
+        
+    }
+
+    function factorialIs(){
+        document.getElementById("print").innerHTML = recursiveFactorial(number.value);
+    }
+
+</script>
+
+</html>    

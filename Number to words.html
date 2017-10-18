@@ -1,0 +1,195 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="num"> Enter num to be converted: </label>
+    <input id="num" type="num">
+
+    <input type="button" value="convert" onClick="printWord()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>    
+    //break given number into three digit chunks
+    function splitNumber(inputString){                        
+        var i = 0;
+        var j = 0;                                               // example: 123456 
+        var num = inputString;                                   // numArray = [456,123] len.numArray = 2
+        var len = inputString.length;
+        var numArray = [];
+        var word = "";
+
+        while(num > 0){                              
+            var y = num % 1000;
+            num = parseInt((num - y)/1000);
+            numArray[i] = y;
+            i++;
+        }
+        return numArray;     
+    }
+
+    //Gives out thousands, million and billion according to number
+    function numberScales(i){
+        switch(i){
+            case 0: code = "";
+            break;
+            case 1: code = "Thousand";
+            break;
+            case 2: code = "Million";
+            break;
+            case 3: code = "Billion";
+            break;
+            case 4: code = "trillion";
+            break;
+            case 5: code = "Quadrillion"
+            break;
+            default:
+            break;
+        }
+        return code;
+    }
+
+    //separate digits from a three digit number string e.g. 456 to individual digits e.g  [4,5,6] or 24 to [0, 2, 4]    
+    function separateDigits(inputNum){   
+        var separateArray = [];
+        if(inputNum.length === 3){
+            separateArray[0] = parseInt(inputNum.charAt(0));
+            separateArray[1] = parseInt(inputNum.charAt(1));
+            separateArray[2] = parseInt(inputNum.charAt(2));
+        }else if(inputNum.length === 2){
+            separateArray[0] = 0;
+            separateArray[1] = parseInt(inputNum.charAt(0));
+            separateArray[2] = parseInt(inputNum.charAt(1));
+        }else if(inputNum.length === 1){
+            separateArray[0] = 0;
+            separateArray[1] = 0;
+            separateArray[2] = parseInt(inputNum.charAt(0));
+        }
+        return separateArray;
+    }
+
+    //Convert digit digitToWord to its word digitToWord.
+    function digitToWord(inputDigit){
+        var code = "";
+        switch(parseInt(inputDigit)){
+            case 1: code = " One ";
+            break;
+            case 2: code = " Two ";
+            break;
+            case 3: code = " Three ";
+            break;
+            case 4: code = " Four ";
+            break;
+            case 5: code = " Five ";
+            break;
+            case 6: code = " Six ";
+            break;
+            case 7: code = " Seven ";
+            break;
+            case 8: code = " Eight ";
+            break;
+            case 9: code = " Nine ";
+            break;
+            default: code = "";
+            break;
+        }
+        return code;
+    }
+
+    // convert a 3 digit number to words e.g. 456 to four hundred fifty six, 412 to four hundred twelve, 403 to four hundred three
+    function threeDigitNumberToWord(inputNum){
+        var numberInWords = "";
+        var separateArray = [];
+        separateArray = separateDigits(inputNum);                                                            
+        if(separateArray[0] > 0){
+            numberInWords = digitToWord(separateArray[0]) + "hundred ";    
+        }
+        if(separateArray[1] == 1){
+            switch(separateArray[2]){
+                case 0: code = "Ten ";
+                break;
+                case 1: code = "Eleven ";
+                break;
+                case 2: code = "Twelve ";
+                break;
+                case 3: code = "Thirteen ";
+                break;
+                case 4: code = "Forteen ";
+                break;
+                case 5: code = "Fifteen ";
+                break;
+                case 6: code = "Sixteen ";
+                break;
+                case 7: code = "Seventeen ";
+                break;
+                case 8: code = "Eighteen ";
+                break;
+                case 9: code = "Nineteen ";
+                break;
+                default: code = "";
+                break;
+            }
+            numberInWords += code;
+        }    
+        if(separateArray[1] != 1){
+            switch(separateArray[1]){
+                case 2: code = "Twenty ";
+                break;
+                case 3: code = "Thirty ";
+                break;
+                case 4: code = "Forty ";
+                break;
+                case 5: code = "Fifty ";
+                break;
+                case 6: code = "Sixty ";
+                break;
+                case 7: code = "Seventy ";
+                break;
+                case 8: code = "Eighty ";
+                break;
+                case 9: code = "Ninety ";
+                break;
+                default: code = "";
+                break;
+            }    
+            numberInWords += code;
+            if(separateArray[2] > 0){
+                numberInWords += digitToWord(separateArray[2]);
+            }
+        }
+        
+        return numberInWords;
+    }
+
+    function convertNumberToWord(inputString){
+        var numberInWords = "";
+        var numArray = [];
+        // convert input number in 3 digit chunks
+        numArray = splitNumber(inputString);
+
+        // convert each 3 digit chunk to words and append suffix like thousand, millions and billions 
+
+        for(i = numArray.length-1; i >= 0; i--){
+            numberInWords += threeDigitNumberToWord(numArray[i].toString());
+            if(numArray[i] > 0){
+                numberInWords += numberScales(i);       
+            }    
+        }
+        return numberInWords;
+    }
+
+function printWord(){
+    document.getElementById("print").innerHTML = convertNumberToWord(num.value);
+}
+
+</script>
+
+</html>

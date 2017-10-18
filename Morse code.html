@@ -1,0 +1,141 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+    
+    <label for = "alphabet"> Enter character: </label>
+    <input id = "alphabet">
+
+    <input type = "button" value= "find" onClick = "printCode()">
+
+</form>
+
+<p id = "print">  </p>
+
+</body>
+
+<script>
+function morseCode(inputString){
+    var i = 0;
+    var y;
+    var code = "";
+    var outputString = "";
+    var len ;
+    var charArray = [];
+    var len = inputString.length;
+    for(i=0;i<=(len-1);){
+        y = inputString.charAt(i);
+        charArray[i] = y ;
+        i++;
+    }
+
+    for(i = 0; i <= charArray.length-1; i++){
+        switch (charArray[i]){
+        case "a":
+            code = " .- ";
+            break;
+        case "b":
+            code = " -... ";
+            break;
+        case "c":
+            code = " -.-. ";
+            break;    
+        case "d":
+            code = " -.. ";
+            break;
+        case "e":
+            code = " . ";
+            break;
+        case "f":
+            code = " ..-. ";
+            break;
+        case "g":
+            code = " --. ";
+            break;    
+        case "h":
+            code = " .... ";
+            break;
+        case "i":
+            code = " .. ";
+            break;
+        case "j":
+            code = " .--- ";
+            break;
+        case "k":
+            code = " -.- ";
+            break;    
+        case "l":
+            code = " .-.. ";
+            break;
+        case "m":
+            code = " -- ";
+            break;
+        case "n":
+            code = " -. ";
+            break;
+        case "o":
+            code = " --- ";
+            break;    
+        case "p":
+            code = " .--. ";
+            break;
+        case "q":
+            code = " --.- ";
+            break;
+        case "r":
+            code = " .-. ";
+            break;
+        case "s":
+            code = " ... ";
+            break;    
+        case "t":
+            code = " - ";
+            break;
+        case "u":
+            code = " ..- ";
+            break;
+        case "v":
+            code = " ...- ";
+            break;
+        case "w":
+            code = " .-- ";
+            break;    
+        case "x":
+            code = " -..- ";
+            break;    
+        case "y":
+            code = " -.-- ";
+            break; 
+        case "z":
+            code = " --.. ";
+            break; 
+        case " ":
+            code = " / ";
+            break;
+        default:
+            break;
+        }
+        outputString += code;
+    }
+    return outputString;
+}
+
+function printCode(){
+    document.getElementById("print").innerHTML = morseCode(alphabet.value.toLowerCase()); 
+}
+    
+</script>
+
+</html>
+    
+    
+    
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,40 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+    
+    <label for = "number"> Enter number of terms: </label>
+    <input id = "number">
+
+    <input type = "button" value= "find" onClick = "printNumber()">
+
+</form>
+
+<p id = "print">  </p>
+
+</body>
+
+<script>
+
+    function fibonacciNumber(num){
+        var i = 0;
+        var n = parseInt(num);
+        var numArray = [];
+        numArray[0] = 1;
+        numArray[1] = 1;
+        for (i = 2; i < n; i++){
+            numArray[i] = numArray[i-1] + numArray[i-2];
+        }
+        return numArray;
+    }
+
+    function printNumber(){
+        document.getElementById("print").innerHTML =fibonacciNumber(number.value);
+    }
+
+</Script>
+
+</html>

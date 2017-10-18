@@ -1,0 +1,71 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="numb"> Enter Number: </label>
+    <input id="numb" type="number" />
+    <br>
+    <input type="button" value="Add" onClick="addNumber()">   
+    <input type="button" value="Print" onClick="printNumber()">  
+</form>
+
+<p id="print"> Numbers: <br> </p>
+<p id="average">Average:  <br> </p>
+<p id="maximum">Max:       <br> </p>
+<p id="minimum">Min:    </p>
+</body>
+
+<script>
+
+var numbArray =[];
+var i=0;
+function addNumber(){
+    var x = numb.value;
+    var num = parseInt(x);
+    numbArray[i] = num;
+    i++;
+}
+
+function printNumber(){
+    var numberDisplay="";
+    var avg=0;
+    var sum=0;
+    var max=-Infinity;
+    var min=Infinity;
+    
+    // print numbers in revese order
+    for(i = (numbArray.length)-1; i >= 0; i--){
+       numberDisplay += numbArray[i] + "<br>";
+    }
+    document.getElementById("print").innerHTML = numberDisplay;
+    
+    // print average numbers 
+    for(i=0 ; i <= (numbArray.length-1); i++){
+       sum = sum + numbArray[i]; 
+    }   
+    avg = (sum/numbArray.length);
+    
+    document.getElementById("average").innerHTML = avg.toString();
+
+    for (i=0;i <= (numbArray.length-1); i++){
+        if (numbArray[i] > max){
+            max = numbArray[i]
+        }  
+    }
+    document.getElementById("maximum").innerHTML = max;
+
+    
+    for (i=0;i <= (numbArray.length-1);i++){
+        if(numbArray[i]<min){
+            min = numbArray[i];
+        }
+    }
+    document.getElementById("minimum").innerHTML = min;
+}
+
+</script>
+

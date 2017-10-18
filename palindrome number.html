@@ -1,0 +1,51 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter value for checkings if its palindrome: </label>
+    <input id="number" >
+
+    <input type="button" value="check" onclick="palindromeNumber()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>
+
+function toCheck(inputString){
+    var numArray = [];
+    var i=0;
+    var numberDisplay="";
+    var reverseDisplay="";
+    var inputString =number.value;
+    var len = inputString.length;
+    for (i=0; i<=(len - 1); i++){
+        var y = inputString.charAt(i);
+        numArray[i] = y;
+    }
+
+    for(i = (numArray.length)-1; i >= 0; i--){
+       reverseDisplay += numArray[i];   
+    }
+    
+    for(i = 0; i<=(numArray.length-1); i++){
+        numberDisplay += numArray[i];   
+    }
+    if (reverseDisplay == numberDisplay){
+        return "This number is a palindrome Number ";
+    }else{
+        return "This number is not a palindrome Number";
+    }
+}
+
+function palindromeNumber(){
+    document.getElementById("print").innerHTML = toCheck(number.value);
+}
+</Script>

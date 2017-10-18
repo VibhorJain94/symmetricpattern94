@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<form id="formid">
+
+<div id="first">
+    <input type="button" id="buttonadd" value="add">&nbsp &nbsp &nbsp
+    <input type="button" id="sort" value="sort">
+</div>
+
+<div id="inputfield">
+    <label for="text">Enter Name:</label>
+    <input id="text" type="text" value="" name="entername"/>
+</div>
+
+<div id="newfield">
+</div>        
+
+<form>
+
+<script>
+
+    $(document).ready(function (){
+        $("#buttonadd").click(function(){
+            $("#newfield").append('<div id="inputfield"> <label for="text">Enter Name:</label> <input id="text" type="text"  value="" name="entername"/> </br></div>');
+
+        });
+        
+        
+        $("#sort").click(function(){
+            var i = 0;
+            var nameArray = [];
+        
+            $("input[name=entername]").each(function() {
+                nameArray.push($(this).val());
+            });
+
+                nameArray.sort();
+
+            $("input[name=entername]").each(function() {            
+                $(this).val(nameArray[i]);
+                i++;
+            });
+            
+
+        });
+    });   
+       
+</script>  
+</body>        
+</html>

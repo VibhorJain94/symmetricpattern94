@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+
+<form>
+
+<label for="temp">Enter value:</label>
+<input type="text" id="temp" >
+
+<input type="button" value="Fahrenheit to Celsius"  onclick="FtoC()" >
+
+<input type="button" value="Celsius to Fahrenheit"  onclick="CtoF()">
+
+</form>
+
+<script>
+
+function FtoC(){
+    var x = temp.value;
+    var f = parseFloat(x);
+    var celsius = (5/9) * (f-32);
+    temp.value = celsius.toString();
+}
+
+
+function CtoF(){
+    var x = temp.value;
+    var c = parseFloat(x);
+    var fahrenheit = (c*(9/5)+32);
+    temp.value = fahrenheit.toString();
+}
+
+</script>
+
+
+
+
+
+
+

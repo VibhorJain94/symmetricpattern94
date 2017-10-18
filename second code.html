@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+
+<body>
+
+<form>
+    <label for="number">Number:</label>
+    <input id="number" type="number" >   
+
+    <input type="button"  value="click" onClick="findDivisors()">
+</form>
+
+<p id="divisibleBy" ></p>
+
+</body>
+
+<script>
+
+function findDivisors(){
+    document.getElementById("divisibleBy").innerHTML = "";
+    var numFac = [];
+    var j = 0;
+    var i = 1;
+    var x = number.value;
+    var num = parseInt(x);
+    while (i<=num){
+        if (num%i == 0) {
+            numFac[j] = i;
+            
+            
+            for ( j; j<=numFac.length; j++ ){
+                if ((numFac[j] != 1) && (numFac[j] != num)){
+                    document.getElementById("divisibleBy").innerHTML = "Number is not a prime number.  <br>"; 
+                }else{
+                    document.getElementById("divisibleBy").innerHTML = "Number is a prime number.";
+                }
+            }
+        }
+        i++;
+    }
+}
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<form>
+
+<label for="xCordinate">x-cordinate:</label>
+<input type="text" id="xCordinate">
+</br>
+<label for="yCordinate">y-cordinate:</label>
+<input type="text" id="yCordinate">
+</br>
+<label for="radius">Radius:&nbsp &nbsp &nbsp &nbsp</label>
+<input type="text" id="radius">
+</br>
+<input type="button" value="DRAW" onClick="drawCircle(xCordinate.value,yCordinate.value,radius.value);drawCircle(parseInt(xCordinate.value)+50,yCordinate.value,radius.value);drawCircle(parseInt(xCordinate.value)+25,(yCordinate.value)-50,radius.value);areaofCircle(radius.value) "> 
+</form>
+<p id="area"> </p>
+</body>
+<canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;"> </canvas>
+
+<script>
+function drawCircle(xofCentre,yofCentre,radius){
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.strokeStyle = '#0000ff';
+    for ( var i = radius; i>10; i-=5){
+        ctx.beginPath();
+        ctx.arc(xofCentre, yofCentre, i,0, 2*Math.PI);
+        ctx.stroke();
+        }
+}
+
+function areaofCircle(radius){
+    var Area = Math.PI*Math.pow(radius,2);
+    document.getElementById("area").innerHTML = Area;
+}
+
+
+</script> 
+
+
+</html>

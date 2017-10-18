@@ -1,0 +1,122 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter number to be converted: </label>
+    <input id="number" type="number">
+
+    <input type="button" value="convert" onclick="printRoman()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>
+
+function convertoRoman(inputString){
+    var numArray =[];
+    var romanArray = [];
+    var a = "";
+    var b = "";
+    var c = "";
+    var romanNumber = "";
+    var num = inputString;
+    var len = num.length;
+    var code = "";
+    var j = 0;
+    var i = 0;
+
+    // parse and store number into an array
+    for(i = num.length - 1; i>=0; i--){
+        var y = num.charAt(j);
+        numArray[i] = y;
+        j++;
+    }    
+
+    for (i = 0; i < len; i++){
+        if (i == 0){
+            a = "I";
+            b = "V";
+            c = "X";
+        }
+        else if(i == 1){
+            a = "X";
+            b = "L";
+            c = "C";
+        }
+        else if(i == 2){
+            a = "C";
+            b = "D";
+            c = "M";
+        }
+        else if(i == 3){
+            a = "M";
+            b = "(V)";
+            c = "(X)";
+        }
+
+        if(num > 0){
+            switch(parseInt(numArray[i])){
+                case 0:
+                code = "";
+                break;
+                case 1:
+                code = a;
+                break;
+                case 2:
+                code = a+a;
+                break;
+                case 3:
+                code = a+a+a;
+                break;
+                case 4:
+                code = a+b;
+                break;
+                case 5:
+                code = b;
+                break;
+                case 6:
+                code = b+a;
+                break;
+                case 7:
+                code = b+a+a;
+                break;
+                case 8:
+                code = b+a+a+a;
+                break;
+                case 9:
+                code = a+c;
+                break;
+                case 10:
+                code = c;
+                break;
+                default:
+                break;
+            }
+        }else{
+            return 0;
+        }
+        romanArray[i] = code;
+    }
+
+    for(i = romanArray.length-1; i >= 0; i--){
+        romanNumber += romanArray[i];
+    }
+
+    return romanNumber;
+
+}
+
+function printRoman(){
+    document.getElementById("print").innerHTML = convertoRoman(number.value);
+}
+
+</script>
+
+</html>

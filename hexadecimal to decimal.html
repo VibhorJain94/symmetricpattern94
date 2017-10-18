@@ -1,0 +1,83 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter number to be converted: </label>
+    <input id="number" >
+
+    <input type="button" value="convert" onclick="printDecimal()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>
+
+function convertoDecimal(inputString){
+    var numArray =[];
+    var len = inputString.length;
+    var j = 0;
+    var i = 0;
+    var output = 0;
+    var code = 0;
+
+    // parse's string to an array.
+    for(i = inputString.length-1; i>=0; i--){
+        var y = inputString.charAt(j);
+        numArray[i] = y;
+        j++;
+    }
+
+    for(i = 0; i<numArray.length; i++){
+        switch(numArray[i]){
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+            code = parseInt(numArray[i])*Math.pow(16,i);
+            break;
+            case "A":
+            code = 10*Math.pow(16,i);
+            break;  
+            case "B":
+            code = 11*Math.pow(16,i);
+            break;
+            case "C":
+            code = 12*Math.pow(16,i);
+            break;
+            case "D":
+            code = 13*Math.pow(16,i);
+            break;
+            case "E":
+            code = 14*Math.pow(16,i);
+            break;
+            case "F":
+            code = 15*Math.pow(16,i);
+            break;
+            default:
+            break;
+        }
+        output = output + code;
+    }
+    return output;
+}
+    
+function printDecimal(){
+    document.getElementById("print").innerHTML = convertoDecimal(number.value.toUpperCase());
+}
+
+</script>
+
+</html>

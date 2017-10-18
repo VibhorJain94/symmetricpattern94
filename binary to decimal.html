@@ -1,0 +1,47 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter number to be converted: </label>
+    <input id="number" type="number">
+
+    <input type="button" value="convert" onclick="printDecimal()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>
+
+function convertoDecimal(inputString){
+    var numArray =[];
+    var len = inputString.length;
+    var j = 0;
+    var i = 0;
+    var output = 0;
+
+    for(i = inputString.length - 1; i>=0; i--){
+        var y = inputString.charAt(j);
+        numArray[i] = parseInt(y);
+        j++;
+    }
+    
+    for(i = 0; i<numArray.length; i++){
+         output += numArray[i]*Math.pow(2,i);
+    }
+    return output;
+}
+
+function printDecimal(){
+    document.getElementById("print").innerHTML = convertoDecimal(number.value);
+}
+
+</script>
+
+</html>

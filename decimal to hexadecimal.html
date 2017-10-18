@@ -1,0 +1,63 @@
+<!Doctype html>
+
+<html>
+
+<body>
+<form>
+    <label for = "number">Enter number to be converted: </label>
+    <input id="number">    
+
+    <input type="button" value="Print"  onClick = "hexaDecimal()" >
+</form>
+<p id="print"> </p>
+</body>
+<script>
+
+function convertDecimal(inputString){
+    var hexaDecimal = [];
+    var i = 0;
+    var num = inputString;          // decimal number
+    var hexaNumber = "";
+    if(num > 0){
+        while(num > 0){
+            hexaDecimal[i] = num % 16;
+                switch (hexaDecimal[i]){
+                    case 10:
+                    hexaDecimal[i] = "A";
+                    break;
+                    case 11:
+                    hexaDecimal[i] = "B";
+                    break;
+                    case 12:
+                    hexaDecimal[i] = "C";
+                    break;
+                    case 13:
+                    hexaDecimal[i] = "D";
+                    break;
+                    case 14:
+                    hexaDecimal[i] = "E";
+                    break;
+                    case 15:
+                    hexaDecimal[i] = "F";
+                    break;
+                    default:
+                    break;
+                }
+            num = parseInt(num / 16);
+            i++;
+        }
+    }
+    else{
+        return 0;
+    }  
+    for(i=hexaDecimal.length-1;i>=0;i--){
+            hexaNumber += hexaDecimal[i];
+    }
+    return hexaNumber;
+}    
+
+function hexaDecimal(){
+    document.getElementById("print").innerHTML = convertDecimal(number.value);
+}
+</script>
+        

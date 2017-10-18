@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="jquery.min.js"></script>
+
+</head>
+
+<body>
+    <form id="ship">
+        <p>Shipping Address:</p>
+
+        <label for="line1">Line 1:</label>
+        <Input id="line1" type="text"></br></br>
+
+        <label for="line2">Line 2:</label>
+        <Input id="line2" type="text"></br></br>
+
+        <label for="city">city:</label>
+        <Input id="city" type="text"></br></br>
+
+        <label for="state">state:</label>
+
+        <select id="state">
+            <option id="state"></option>
+            <option id="state" value="Rajasthan">Rajasthan</option>
+            <option id="state" value="Gujarat">Gujarat</option>
+            <option id="state" value="Delhi">Delhi</option>
+            <option id="state" value="Punjab">Punjab</option>
+            <option id="state" value="Kerala">Kerala</option>
+            <option id="state" value="Goa">Goa</option>
+        </select>
+        
+        </br></br>
+        
+        <label for="pin">pin:</label>
+        <Input id="pin" type="number"></br></br>
+
+    </form>    
+
+    <input type="checkbox" id="copyaddress"> My Billing Address is same as my Shipping Address
+    </br></br>
+    
+    	<form id="bill">
+        <p>Billing Address:</p>
+
+        <label for="bline1">Line 1:</label>
+        <Input id="bline1" type="text"></br></br>
+
+        <label for="bline2">Line 2:</label>
+        <Input id="bline2" type="text"></br></br>
+
+        <label for="bcity">city:</label>
+        <Input id="bcity" type="text"></br></br>
+
+        <label for="bstate">state:</label>
+
+        <select id="bstate">
+            <option id="state"></option>
+            <option id="bstate" value="Rajasthan">Rajasthan</option>
+            <option id="bstate" value="Gujarat">Gujarat</option>
+            <option id="bstate" value="Delhi">Delhi</option>
+            <option id="bstate" value="Punjab">Punjab</option>
+            <option id="bstate" value="Kerala">Kerala</option>
+            <option id="bstate" value="Goa">Goa</option>
+        </select>
+
+        </br></br>
+
+        <label for="bpin">pin:</label>
+        <Input id="bpin" type="number"></br></br>
+
+    </form>       
+
+<script>
+    $(document).ready(function(){
+    
+    $("#copyaddress").change(function() {    
+        copybillingaddress(this.checked);
+    }); 
+
+    $("#line1").change(function() {
+        if($("#copyaddress").prop("checked")){
+            $("#bline1").val($("#line1").val());
+        }
+    });
+
+    $("#line2").change(function() {
+        if($("#copyaddress").prop("checked")){
+            $("#bline2").val($("#line2").val());
+        }
+    });
+
+    $("#city").change(function() {
+        if($("#copyaddress").prop("checked")){
+            $("#bcity").val($("#city").val());
+        }
+    });
+
+    $("#state").change(function() {
+        if($("#copyaddress").prop("checked")){
+            $("#bstate").val($("#state").val());
+        }
+    });
+
+    $("#pin").change(function() {
+        if($("#copyaddress").prop("checked")){
+            $("#bpin").val($("#pin").val());
+        }
+    });
+    
+    function copybillingaddress(checkedstate) {
+        if (checkedstate){
+
+            $("#bline1").val($("#line1").val());
+            $("#bline1").prop('disabled', true);
+
+            $("#bline2").val($("#line2").val());
+            $("#bline2").prop('disabled', true);
+
+            $("#bcity").val($("#city").val());
+            $("#bcity").prop('disabled', true);        
+            
+            $("#bstate").val($("#state").val());
+            $("#bstate").prop('disabled', true);
+            
+            $("#bpin").val($("#pin").val());
+            $("#bpin").prop('disabled', true);
+        }
+        else {
+            $("#bline1").prop('disabled', false);
+            $("#bline2").prop('disabled', false);
+            $("#bcity").prop('disabled', false);
+            $("#bstate").prop('disabled', false);
+            $("#bpin").prop('disabled', false);
+        }
+    }      
+    });
+
+</script>
+
+</body>
+
+</html>    

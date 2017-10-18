@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        var s = $(this).text();
+        $("#myForm #output").val(s);
+    });
+}); 
+</script>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+<p>Ishu!</p>
+<p>Bonny!</p>
+<p id="print"></p>
+
+<form id = "myForm" >
+    <input id="output">
+</form>
+
+</body>
+</html>

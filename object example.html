@@ -1,0 +1,40 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text">
+    <br>
+    <label for="age">Age: </label>
+    <input id="age" type="number">
+    <br>
+    <input type="button" value="Add Passenger" onClick= "addPassenger()">
+    <input type="button" value="print" onClick= "printPassengerdetails()">
+</form>
+
+<p id="print"> </p> 
+
+</body>
+
+<script>
+
+function addPassenger(){
+
+    var passenger = {firstName : firstName.value, lastName : lastName.value, age : age.value, gender : "M" };
+    printPassengerDetails(passenger);
+}
+
+function printPassengerDetails(passenger){
+     var person = passenger.lastName + " " + passenger.firstName + " " + passenger.age + " " + passenger.gender;
+    document.getElementById("print").innerHTML = person;    
+
+}
+</script>
+
+</html>

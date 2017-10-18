@@ -1,0 +1,47 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for = "number">Enter number to be converted: </label>
+    <input id="number">    
+
+    <input type="button" value="Print" onClick = "printBinary()" >
+
+</form>
+
+<p id="print"> </p>
+
+</body>
+
+<script>
+    function convertDecimal(inputString){
+        var binary = [];
+        var i = 0;
+        var binaryNumber = "";
+        var num = parseInt(inputString);
+        if(num>0){
+            while(num>0){
+             binary[i] = num % 2;
+             num = parseInt(num / 2);
+             i++;
+            }
+        }else{
+            return 0;
+        }    
+        
+        for(i=binary.length-1;i>=0;i--){
+            binaryNumber += binary[i];
+        }
+        return binaryNumber; 
+    }
+
+    function printBinary(){
+        document.getElementById("print").innerHTML = convertDecimal(number.value);
+    } 
+
+</script>
+

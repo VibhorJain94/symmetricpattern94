@@ -1,0 +1,38 @@
+<!Doctype html>
+
+<html>
+
+<body>
+
+<form>
+
+    <label for="number"> Enter year to check if its leap year: </label>
+    <input id="number" type="number">
+
+    <input type="button" value="check" onClick="toFind()">
+
+</form>
+
+<p id="print">  </p>
+
+</body>
+
+<script>
+
+function toFind(){
+    var num = number.value;
+    var year = parseInt(num);
+    if (year%4 == 0 ){
+        if(year%100 != 0 || year%400 == 0){
+            document.getElementById("print").innerHTML = "It's a Leap year";
+        }
+        else{
+            document.getElementById("print").innerHTML = "Not a Leap year";
+        }
+    }
+    else{
+        document.getElementById("print").innerHTML = "Not a Leap year";
+    }
+}
+
+</script>

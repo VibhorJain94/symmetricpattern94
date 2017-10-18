@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#b1, #b2, #b3, #b4, #b5").hide();
+	$("#show").click(function(){
+    	$("#b1, #b2, #b3, #b4, #b5").show();	
+      $("#b1").click(function(){
+       	$(this).show();
+        $("#print").text("My Name is Vibhor");
+      });  
+      $("#b2").click(function(){
+        $(this).show();
+        $("#print").text("My Name is Ishu");
+      });  
+      $("#b3").click(function(){
+        $(this).show();
+        $("#print").text("My Name is Adele");
+      });
+      $("#b4").click(function(){
+        $(this).show();
+        $("#print").text("My Name is Taylor");
+      });
+      $("#b5").click(function(){
+        $(this).show();
+        $("#print").text("My Name is adam");
+      });
+	});
+});
+</script>
+</head>
+<body>
+
+
+<p id="print"> </p>
+<button id="show">Click on me </button><br><br>
+
+<button id="b1" >vibhor</p>
+<button id="b2" >Ishu</p>
+<button id="b3" >Hello</p> 
+<button id="b4" >Taylor</p>
+<button id="b5" >Adam</p>
+
+</body>
+</html>
